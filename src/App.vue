@@ -145,7 +145,7 @@
       <!-- <v-icon class="ml-4" v-if="drawer" @click="drawer = !drawer" size="50" color="#a2c4c9">mdi-menu</v-icon> -->
 
 
-        <v-img v-if="!drawer && !$vuetify.display.mobile"  style="margin-left:10px;height:70px;width:385px;cursor: pointer;"
+        <v-img v-if="!drawer && !$vuetify.display.mobile"  style="margin-left:5px;height:80px;cursor: pointer;"
           src="/img/logos/louiskredit_logo_hx_blue.png"
           @click="routerGoHome('/', $vuetify.display.mobile)"
         ></v-img>

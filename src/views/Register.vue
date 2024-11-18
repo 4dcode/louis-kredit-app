@@ -292,7 +292,7 @@
                         <v-btn color="#70a7dc" 
                             class="px-16 mb-8"
                             size="x-large"
-                            @click="submitForm"
+                            @click="submitForm($vuetify.display.mobile)"
                             block
                         >
                             {{ lang[getLanguage].FORM_SUBMIT }}
@@ -424,7 +424,7 @@ export default {
     }
   },
   methods: { 
-    async submitForm() {
+    async submitForm(mobile) {
 
         const { valid } = await this.$refs.form.validate()
 
@@ -432,7 +432,7 @@ export default {
             this.valid = true
             this.submitted = true
             console.log(this.valid)
-            await this.createApplicationInFb()
+            await this.createApplicationInFb(mobile)
 
         } else {
             this.valid = false
@@ -443,7 +443,7 @@ export default {
     handleFiles () {
 
     },
-    async createApplicationInFb () {
+    async createApplicationInFb (mobile) {
         
         let postkey = db.collection('lk_applications').doc()
         let dispatchObj = {
@@ -486,6 +486,7 @@ export default {
           }); */
 
           this.clearForm()
+          this.scrollToTop(mobile)
           this.view = 2
         })
         .catch(error => {
